@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Title
+  - Desc
+  - Owner
+  - OnSale
+  - Price
+  - Q1
+  - I1
+  - I2
   layers:
   - Default
   - TransparentFX
