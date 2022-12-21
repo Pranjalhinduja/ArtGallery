@@ -8,7 +8,7 @@ public class ToNewScene : MonoBehaviour
     private float dist;
     private GameObject player;
     private bool check;
-    static int i = 24;
+    public static int i = 18;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +29,7 @@ public class ToNewScene : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 check = true;
+                i = 18;
             }
 
         }

@@ -27,7 +27,7 @@ public class GetListedNFTWebWallet : MonoBehaviour
 
     private string _itemID = "";
 
-    static int i=24;
+    public static int i = 24;
 
     public void Awake()
     {
