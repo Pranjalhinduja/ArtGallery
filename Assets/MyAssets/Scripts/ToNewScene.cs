@@ -8,7 +8,7 @@ public class ToNewScene : MonoBehaviour
     private float dist;
     private GameObject player;
     private bool check;
-    static int i = 24;
+    static int i = 20;
     // Start is called before the first frame update
     void Start()
     {
