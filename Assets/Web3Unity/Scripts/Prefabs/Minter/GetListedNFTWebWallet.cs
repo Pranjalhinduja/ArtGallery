@@ -27,6 +27,7 @@ public class GetListedNFTWebWallet : MonoBehaviour
 
     private string _itemID = "";
 
+    static int i=19;
 
     public void Awake()
     {
@@ -44,16 +45,16 @@ public class GetListedNFTWebWallet : MonoBehaviour
     async void Start()
     {
         List<GetNftListModel.Response> response = await EVM.GetNftMarket(chain, network);
-        price.text = response[0].price;
-        seller.text = response[0].seller;
-        Debug.Log("Seller: " + response[0].seller);
-        if (response[0].uri.StartsWith("ipfs://"))
+        price.text = response[i].price;
+        seller.text = response[i].seller;
+        Debug.Log("Seller: " + response[i].seller);
+        if (response[i].uri.StartsWith("ipfs://"))
         {
-            response[0].uri = response[0].uri.Replace("ipfs://", "https://ipfs.io/ipfs/");
-            Debug.Log("Response URI" + response[0].uri);
+            response[i].uri = response[i].uri.Replace("ipfs://", "https://ipfs.io/ipfs/");
+            Debug.Log("Response URI" + response[i].uri);
         }
 
-        UnityWebRequest webRequest = UnityWebRequest.Get(response[0].uri);
+        UnityWebRequest webRequest = UnityWebRequest.Get(response[i].uri);
         await webRequest.SendWebRequest();
         RootGetNFT data =
             JsonConvert.DeserializeObject<RootGetNFT>(
@@ -89,14 +90,14 @@ public class GetListedNFTWebWallet : MonoBehaviour
                 }
             }
         }
-        listPercentage.text = response[0].listedPercentage;
-        Debug.Log(response[0].listedPercentage);
-        contractAddr.text = response[0].nftContract;
-        itemId.text = response[0].itemId;
-        _itemID = response[0].itemId;
-        _itemPrice = response[0].price;
-        _tokenType = response[0].tokenType;
-        tokenId.text = response[0].tokenId;
+        listPercentage.text = response[i].listedPercentage;
+        Debug.Log(response[i].listedPercentage);
+        contractAddr.text = response[i].nftContract;
+        itemId.text = response[i].itemId;
+        _itemID = response[i].itemId;
+        _itemPrice = response[i].price;
+        _tokenType = response[i].tokenType;
+        tokenId.text = response[i].tokenId;
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
